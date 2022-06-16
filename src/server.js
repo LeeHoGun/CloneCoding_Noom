@@ -29,9 +29,10 @@ wss.on("connection", (socket) => {
     console.log("Connected to Browser");
     socket.on("close", () => console.log("Disconnected from Browser"));
     socket.on("message", (message) => {
+        socket.send(`${message}`);
         console.log(`${message}`);
     });   
-    socket.send("hello!");
+    // socket.send("hello!");
 });
 
 server.listen(8081, handleListen);
